@@ -2,13 +2,12 @@ body {
   width: 1024px;
   margin: 0px auto;
   font-family: Arial;
-
 }
 
 header {
   margin-top: 2rem;
 }
-header > input#input-search {
+header form input {
   margin: 0px auto;
   display: block;
   width: 30rem;
@@ -59,10 +58,19 @@ div.link-box ul a {
   padding-left: 2rem;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #2D5B9F;
+
+  transition: all 300ms
 }
 div.link-box ul a:hover {
   background-color: #929292;
-  color: #FFF;
+  color: #FFF !important;
+  padding: 1.0rem 0;
+  padding-left: 3rem;
+  font-style: italic;
+}
+div.link-box ul a:visited {
+  color: #2D5B9F;
 }
 
 
