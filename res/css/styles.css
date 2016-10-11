@@ -14,10 +14,16 @@ header
 }
 header form input
 {
+    font-size: .8rem;
+    line-height: 150%;
+
     display: block;
 
     width: 30rem;
     margin: 0 auto;
+    padding: .3rem;
+
+    border-radius: 5px;
 }
 
 div.flex-container
