@@ -9,7 +9,10 @@ $(document).ready(function() {
 
 
 function showWeather(position) {
-    var weatherDataUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=ed4014003656768fefbef9f32fc090cf&units=metric&lang=de";
+  let lat = Math.round(position.coords.latitude);
+  let lon = Math.round(position.coords.longitude);
+  
+    var weatherDataUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ed4014003656768fefbef9f32fc090cf&units=metric&lang=de";
 
     $.ajax({
         url: weatherDataUrl,
