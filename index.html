@@ -9,13 +9,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
-    <script
-			  src="https://code.jquery.com/jquery-3.1.1.min.js"
-			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-			  crossorigin="anonymous"></script>
-        <script src="res/js/prefixfree.min.js"></script>
-        <script src="res/js/jquery.keyframes.min.js"></script>
-        <script src="res/js/weather.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="res/js/prefixfree.min.js"></script>
+    <script src="res/js/jquery.keyframes.min.js"></script>
+    <script src="res/js/weather.js"></script>
+    <script src="res/js/clock.js"></script>
 </head>
 
 <body>
@@ -73,9 +71,17 @@
 
         <div class="second-container">
             <div id="weather-container">
-                <div id="temperature">
-                    <span></span>
+                <div id="weather-clock-container">
+                    <div id="clock-container">
+                        <span id='city'></span>
+                        <span id="clock"></span>
+                    </div>
+
+                    <div id="temperature">
+                        <span></span>
+                    </div>
                 </div>
+
                 <div id="weather-data">
                     <table>
                         <tr class="bordered">

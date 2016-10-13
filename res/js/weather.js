@@ -1,24 +1,40 @@
 $(window).on('load', function() {
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showWeather, function(failure) {
-            showWeather({
+        navigator.geolocation.getCurrentPosition(showData, function(failure) {
+            showData({
                 coords: {
-                    latitude: 54,
-                    longitude: 12
+                    latitude: 54.1532,
+                    longitude: 12.1046
                 }
             });
         });
     } else {
-        showWeather({
+        showData({
             coords: {
-                latitude: 54,
-                longitude: 12
+                latitude: 54.1532,
+                longitude: 12.1046
             }
         });
     }
+
 });
 
+function showData(position) {
+  showWeather(position);
+  showCity(position);
+}
+
+function showCity(position) {
+  var locationUrl = "http://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon="+ position.coords.longitude + "&zoom=18&addressdetails=1";
+
+  $.ajax({
+    url: locationUrl,
+    success: function(result) {
+      $('#city').text(result.address.city);
+    }
+  });
+}
 
 function showWeather(position) {
     let lat = Math.round(position.coords.latitude);
