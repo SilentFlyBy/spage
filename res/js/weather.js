@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).on('load', function() {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showWeather, function(failure) {
@@ -32,6 +32,9 @@ function showWeather(position) {
             let speed_kmh = result.wind.speed * 3.6;
             let pressure = Math.round(result.main.pressure);
             let temperature = result.main.temp.toFixed(1);
+            let wind_deg = Math.round(result.wind.deg);
+            let wind_deg_fluctuation = 5;
+            let wind_fluct_duration = Math.round(2 / speed_kmh * 10000) + "ms";
 
             let pressure_color;
             if (pressure > 1013) {
@@ -43,23 +46,24 @@ function showWeather(position) {
             }
 
             let temperature_color;
-            switch(true) {
-              case (temperature >= 30):
-                temperature_color = "red";
-                break;
-              case (temperature >= 20):
-                temperature_color = "orange";
-                break;
-              case (temperature >= 10):
-                temperature_color = "yellow";
-                break;
-              case (temperature >0):
-                temperature_color = "green";
-                break;
-              default:
-                temperature_color = "blue";
-                break;
+            switch (true) {
+                case (temperature >= 30):
+                    temperature_color = "red";
+                    break;
+                case (temperature >= 20):
+                    temperature_color = "orange";
+                    break;
+                case (temperature >= 10):
+                    temperature_color = "yellow";
+                    break;
+                case (temperature > 0):
+                    temperature_color = "green";
+                    break;
+                default:
+                    temperature_color = "blue";
+                    break;
             }
+
 
             $('#temperature span').text(temperature + '°C');
             $('#temperature span').attr("style", "color: " + temperature_color + ";");
@@ -68,9 +72,55 @@ function showWeather(position) {
             $('#pressure').text(pressure + " hPa");
             $('#pressure').attr("style", "color: " + pressure_color + ";");
             $('#humidity').text(result.main.humidity + "%");
-            $('.wind-arrow').attr("style", "transform: rotate(" + Math.round(result.wind.deg) + "deg);");
+            //$('#wind-arrow').attr("style", "transform: rotate(" + Math.round(result.wind.deg) + "deg);");
             $('#wind-degree').text(Math.round(result.wind.deg) + "°");
             $('#wind-speed').text(Math.round(speed_kmh) + " km/h");
+
+
+            $.keyframe.debug = true;
+            $.keyframe.define([{
+                name: 'compass-ani',
+                '0%': {
+                    'transform': 'rotate(' + (wind_deg + wind_deg_fluctuation) + 'deg)'
+                },
+                '50%': {
+                    'transform': 'rotate(' + (wind_deg - wind_deg_fluctuation) + 'deg)'
+                },
+                '100%': {
+                    'transform': 'rotate(' + (wind_deg+ wind_deg_fluctuation) + 'deg)'
+                }
+            }, {
+                name: 'compass-start',
+                '0%': {
+                    'transform': 'rotate(0deg)'
+                },
+                '100%': {
+                    'transform': 'rotate(' + (wind_deg + wind_deg_fluctuation) +'deg)'
+                }
+            }]);
+
+            $('#wind-arrow').playKeyframe({
+                name: 'compass-start',
+                duration: wind_fluct_duration,
+                timingFunction: 'ease-in-out',
+                delay: '0s',
+                iterationCount: '1',
+                direction: 'normal',
+                fillMode: 'forwards',
+                complete: function() {
+                    $('#wind-arrow').playKeyframe({
+                        name: 'compass-ani',
+                        duration: wind_fluct_duration, // [optional, default: 0, in ms] how long you want it to last in milliseconds
+                        timingFunction: 'ease-in-out', // [optional, default: ease] specifies the speed curve of the animation
+                        delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+                        iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+                        direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+                        fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+                        complete: function() {} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+                    });
+                }
+            });
+
         }
     });
 }
