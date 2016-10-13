@@ -37,6 +37,66 @@ div.flex-container
     -webkit-flex-direction: row;
 }
 
+
+div.half-width-container
+{
+    width: 50%;
+    margin: 100px auto;
+    padding: 2rem;
+
+    border-radius: 5px;
+    background-color: #dbdbdb;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+
+div#temperature
+{
+    display: inline-block;
+}
+
+div#additional-data
+{
+    display: inline-block;
+    text-align: right;
+}
+
+div#additional-data span#pressure,
+div#additional-data span#humidity
+{
+    display: block;;
+}
+
+div#temperature span
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+div#weather-container
+{
+    font-size: 1.3rem;
+
+    text-align: center;
+}
+
+div#weather-icon
+{
+    font-size: 1rem;
+
+    display: inline-block;
+
+    margin-left: 2rem;
+}
+
+div#weather-icon img
+{
+    display: block;
+
+    margin: 0 auto;
+}
+
+
 div.link-box
 {
     margin: 10px;
