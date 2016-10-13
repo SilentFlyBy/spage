@@ -38,9 +38,10 @@ div.flex-container
 }
 
 
-div.half-width-container
+div.second-container
 {
-    width: 50%;
+    display: table;
+
     margin: 100px auto;
     padding: 2rem;
 
@@ -52,13 +53,15 @@ div.half-width-container
 
 div#temperature
 {
-    display: inline-block;
+    display: table-cell;
+
+    vertical-align: middle;
 }
 
-div#additional-data
+
+.bordered
 {
-    display: inline-block;
-    text-align: right;
+    border-bottom: 1px solid #000;
 }
 
 div#additional-data span#pressure,
@@ -69,7 +72,7 @@ div#additional-data span#humidity
 
 div#temperature span
 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bold;
 }
 
@@ -86,7 +89,21 @@ div#weather-icon
 
     display: inline-block;
 
-    margin-left: 2rem;
+    padding-right: 10px;
+}
+
+div#wind-container
+{
+    width: auto;
+    margin-top: 10px;
+}
+
+div#wind-container > div
+{
+    display: table;
+
+    height: 100px;
+    margin: 0 auto;
 }
 
 div#weather-icon img
@@ -96,6 +113,63 @@ div#weather-icon img
     margin: 0 auto;
 }
 
+div#wind-data
+{
+    display: table-cell;
+
+    padding-left: 10px;
+
+    vertical-align: middle;
+}
+
+div#weather-data
+{
+    display: table-cell;
+
+    padding-left: 70px;
+}
+
+div#weather-data table
+{
+    border-collapse: collapse;
+}
+
+div#weather-data table td
+{
+    padding: 10px 0;
+}
+
+div#weather-data table td span
+{
+    line-height: 150%;
+
+    display: block;
+}
+
+div.compass
+{
+    display: inline-block;
+
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+
+    border: 5px solid #444;
+    border-radius: 100px;
+    background: url('http://dev.rvltn.eu/compass/compass.svg');
+    background-size: 100%;
+}
+
+div.compass div.wind-arrow
+{
+    z-index: 1000;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('http://dev.rvltn.eu/compass/arrow.svg');
+    background-size: 100%;
+}
 
 div.link-box
 {

@@ -66,22 +66,42 @@
 
         </div>
 
-        <div class="half-width-container">
+        <div class="second-container">
             <div id="weather-container">
                 <div id="temperature">
                     <span></span>
                 </div>
-                <div id="weather-icon">
-                    <img alt="weather-icon" />
-                    <span></span>
+                <div id="weather-data">
+                    <table>
+                        <tr class="bordered">
+                            <td>
+                                <div id="weather-icon">
+                                    <img alt="weather-icon" />
+                                    <span></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="additional-data">
+                                    <span id="pressure"></span>
+                                    <span id="humidity"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="compass">
+                                    <div class="wind-arrow"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="wind-data">
+                                    <span id="wind-degree"></span>
+                                    <span id="wind-speed"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div id="additional-data">
-                  <span id="pressure"></span>
-                  <span id="humidity"></span>
-                </div>
-            </div>
-            <div id="wind-container">
-              
             </div>
         </div>
     </main>
