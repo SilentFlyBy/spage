@@ -286,3 +286,29 @@ div.link-box#box-4 div.headline
 {
     background-color: #da8f1b;
 }
+
+#snowflakeContainer
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.snowflake
+{
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+
+    position: fixed;
+    z-index: 1000;
+
+    padding-left: 15px;
+
+    user-select: none;
+
+    color: #fff;
+}
+.snowflake:hover
+{
+    cursor: default;
+}

@@ -23,6 +23,16 @@ $(window).on('load', function() {
 function showData(position) {
   showWeather(position);
   showCity(position);
+  showSnow();
+}
+
+function showSnow() {
+  var date = new Date();
+  var mm = date.getMonth() +1;
+
+  if(mm == 12 || mm == 1 || mm == 2) {
+    $('#snowflakeContainer').attr("style", "display: block");
+  }
 }
 
 function showCity(position) {
