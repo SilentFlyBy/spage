@@ -161,7 +161,7 @@ div.compass
 
     border: 5px solid #444;
     border-radius: 100px;
-    background: url('http://dev.rvltn.eu/compass/compass.svg');
+    background: url('../img/compass.svg');
     background-size: 100%;
 }
 
@@ -177,7 +177,7 @@ div.compass div#wind-arrow
          -o-transition: all 1s ease;
             transition: all 1s ease;
 
-    background: url('http://dev.rvltn.eu/compass/arrow.svg');
+    background: url('../img/arrow.svg');
     background-size: 100%;
 }
 
