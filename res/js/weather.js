@@ -54,7 +54,7 @@ function showWeather(position) {
       let pressure = Math.round(result.main.pressure);
       let temperature = result.main.temp.toFixed(1);
       let wind_deg = Math.round(result.wind.deg);
-      let wind_deg_fluctuation = 5;
+      let wind_deg_fluctuation = Math.round(0.25 * speed_kmh);
       let wind_fluct_duration = Math.round(2 / speed_kmh * 10000) + "ms";
 
       let pressure_color;
