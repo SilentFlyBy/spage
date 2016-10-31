@@ -6,6 +6,19 @@ body
     margin: 0 auto;
 
     background-color: #133b61;
+
+
+}
+
+.christmas {
+  background: rgba(194,2,2,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(194,2,2,1)), color-stop(0%, rgba(194,2,2,1)), color-stop(80%, rgba(61,0,0,1)), color-stop(100%, rgba(61,0,0,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
+background: radial-gradient(ellipse at center, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c20202', endColorstr='#3d0000', GradientType=1 );
 }
 
 header

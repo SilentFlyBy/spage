@@ -18,6 +18,7 @@ $(window).on('load', function() {
         });
     }
 
+
 });
 
 function showData(position) {
@@ -31,7 +32,10 @@ function showSnow() {
   var mm = date.getMonth() +1;
 
   if(mm == 12 || mm == 1 || mm == 2) {
-    $('#snowflakeContainer').attr("style", "display: block");
+    $(document).snowfall({flakeCount : 200, maxSpeed : 5, maxSize : 3, collection : '.second-container'});
+    if(mm == 12) {
+      $('body').addClass("christmas");
+    }
   }
 }
 
