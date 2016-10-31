@@ -181,6 +181,23 @@ div.compass div#wind-arrow
     background-size: 100%;
 }
 
+div.search-suggestions
+{
+    width: 30em;
+    margin: 0 auto;
+
+    background-color: #fff;
+}
+
+div.search-suggestions a
+{
+    font-weight: bold;
+    line-height: 150%;
+
+    display: block;
+
+    text-decoration: none;
+}
 
 div.link-box
 {

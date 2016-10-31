@@ -51,7 +51,7 @@ function showWeather(position) {
 
     getData(weatherDataUrl, function(result) {
       let speed_kmh = result.wind.speed * 3.6;
-      let pressure = Math.round(result.main.pressure);
+      let pressure = Math.round(result.main.pressure) - 10;
       let temperature = result.main.temp.toFixed(1);
       let wind_deg = Math.round(result.wind.deg);
       let wind_deg_fluctuation = Math.round(0.25 * speed_kmh);
@@ -71,7 +71,7 @@ function showWeather(position) {
           case (temperature >= 30):
               temperature_color = "red";
               break;
-          case (temperature >= 20):
+          case (temperature >= 20):https://github.com/bruchpilotxxl/startpage
               temperature_color = "orange";
               break;
           case (temperature >= 10):
