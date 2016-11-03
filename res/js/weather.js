@@ -86,7 +86,7 @@ function showWeather(position) {
       $('#city').text(result.location.name);
       $('#temperature span').text(temperature + '°C');
       $('#temperature span').attr("style", "color: " + temperature_color + ";");
-      $('#weather-icon img').attr("src", "http:" + result.current.condition.icon);
+      $('#weather-icon img').attr("src", "https:" + result.current.condition.icon);
       $('#weather-icon span').text(result.current.condition.text);
       $('#pressure').text(pressure + " hPa");
       $('#pressure').attr("style", "color: " + pressure_color + ";");
