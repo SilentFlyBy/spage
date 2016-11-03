@@ -23,7 +23,6 @@ $(window).on('load', function() {
 
 function showData(position) {
   showWeather(position);
-  showCity(position);
   showSnow();
 }
 
@@ -39,25 +38,19 @@ function showSnow() {
   }
 }
 
-function showCity(position) {
-  let locationUrl = "https://nominatim.openstreetmap.org/reverse?format=json&lat=" + position.coords.latitude + "&lon="+ position.coords.longitude + "&zoom=18&addressdetails=1";
 
-  getData(locationUrl, function(result) {
-    $('#city').text(result.address.city);
-  });
-}
 
 function showWeather(position) {
-    let lat = Math.round(position.coords.latitude);
-    let lon = Math.round(position.coords.longitude);
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
 
-    let weatherDataUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ed4014003656768fefbef9f32fc090cf&units=metric&lang=de";
+    let weatherDataUrl = "https://api.apixu.com/v1/current.json?key=595c32ad4dce4ec58c4101822160311&q=" + lat + "," + lon + "";
 
     getData(weatherDataUrl, function(result) {
-      let speed_kmh = result.wind.speed * 3.6;
-      let pressure = Math.round(result.main.pressure) - 10;
-      let temperature = result.main.temp.toFixed(1);
-      let wind_deg = Math.round(result.wind.deg);
+      let speed_kmh = result.current.wind_kph;
+      let pressure = result.current.pressure_mb;
+      let temperature = result.current.temp_c;
+      let wind_deg = result.current.wind_degree;
       let wind_deg_fluctuation = Math.round(0.25 * speed_kmh);
       let wind_fluct_duration = Math.round(2 / speed_kmh * 10000) + "ms";
 
@@ -90,15 +83,16 @@ function showWeather(position) {
       }
 
 
+      $('#city').text(result.location.name);
       $('#temperature span').text(temperature + '°C');
       $('#temperature span').attr("style", "color: " + temperature_color + ";");
-      $('#weather-icon img').attr("src", "http://openweathermap.org/img/w/" + result.weather[0].icon + ".png");
-      $('#weather-icon span').text(result.weather[0].description);
+      $('#weather-icon img').attr("src", "http:" + result.current.condition.icon);
+      $('#weather-icon span').text(result.current.condition.text);
       $('#pressure').text(pressure + " hPa");
       $('#pressure').attr("style", "color: " + pressure_color + ";");
-      $('#humidity').text(result.main.humidity + "%");
+      $('#humidity').text(result.current.humidity + "%");
       //$('#wind-arrow').attr("style", "transform: rotate(" + Math.round(result.wind.deg) + "deg);");
-      $('#wind-degree').text(Math.round(result.wind.deg) + "°");
+      $('#wind-degree').text(Math.round(wind_deg) + "°");
       $('#wind-speed').text(Math.round(speed_kmh) + " km/h");
 
 
