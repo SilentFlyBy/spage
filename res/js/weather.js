@@ -68,7 +68,7 @@ function showWeather(position) {
           case (temperature >= 30):
               temperature_color = "red";
               break;
-          case (temperature >= 20):https://github.com/bruchpilotxxl/startpage
+          case (temperature >= 20):
               temperature_color = "orange";
               break;
           case (temperature >= 10):
@@ -91,7 +91,6 @@ function showWeather(position) {
       $('#pressure').text(pressure + " hPa");
       $('#pressure').attr("style", "color: " + pressure_color + ";");
       $('#humidity').text(result.current.humidity + "%");
-      //$('#wind-arrow').attr("style", "transform: rotate(" + Math.round(result.wind.deg) + "deg);");
       $('#wind-degree').text(Math.round(wind_deg) + "°");
       $('#wind-speed').text(Math.round(speed_kmh) + " km/h");
 
