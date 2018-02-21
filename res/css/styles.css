@@ -93,6 +93,8 @@ div.link-box
 
     -webkit-flex: auto;
             flex: 1rem;
+
+    overflow: hidden;
 }
 
 
@@ -140,9 +142,6 @@ div.link-box ul a
 div.link-box ul li:last-child a
 {
     margin-bottom: 1rem;
-
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
 }
 div.link-box ul li:last-child a:hover
 {
