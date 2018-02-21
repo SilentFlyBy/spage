@@ -17,8 +17,6 @@ body
     background:      -o-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
     background:     -ms-radial-gradient(center, ellipse cover, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
     background:         radial-gradient(ellipse at center, rgba(194,2,2,1) 0%, rgba(194,2,2,1) 0%, rgba(61,0,0,1) 80%, rgba(61,0,0,1) 100%);
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c20202', endColorstr='#3d0000', GradientType=1 );
 }
 
 header
