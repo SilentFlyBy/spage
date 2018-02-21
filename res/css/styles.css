@@ -188,6 +188,7 @@ div.link-box ul a:visited
 div#clock-container span
 {
     font-weight: bold;
+    display: block;
 }
 
 
