@@ -23,15 +23,17 @@ header
 {
     margin-top: 2rem;
 }
-header form input
+
+div.search {
+    margin: 0 10px;
+}
+
+div.search input
 {
+    width: calc(100% - (2* 0.3rem) - 3px);
     font-size: .8rem;
     line-height: 150%;
 
-    display: block;
-
-    width: 450px;
-    margin: 0 auto;
     padding: .3rem;
 
     border-radius: 5px;
@@ -61,29 +63,42 @@ div.second-container
     justify-content: center;
 }
 
-@media screen and (max-width: 450px)
-{
-    
-    div.second-container
-    {
-        margin: 50px 10px;
-    }
-
-    header form input
-    {
-        width: 100%;
-        margin: 10px 0;
-    }
-}
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 25em) {
     div.grid-container {
         display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        grid-template-rows: 50% 50%;
+    }
+}
+
+@media screen and (min-width: 25em) and (max-width: 50em) {
+    div.grid-container {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1f 30% 30% 30%;
+    }
+    div.search {
+        grid-column-start: 1;
+        grid-column-end: 3;
     }
     div.second-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+@media screen and (min-width: 50em) {
+    div.grid-container {
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 1f 50% 50%;
+    }
+    div.search {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+    div.link-box {
         grid-row-start: 2;
-        grid-row-end: 3;
+    }
+    div.second-container {
+        grid-row-start: 3;
+        grid-row-end: 4;
         grid-column-start: 2;
         grid-column-end: 4;
     }
