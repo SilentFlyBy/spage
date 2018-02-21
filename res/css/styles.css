@@ -39,25 +39,19 @@ header form input
     border-radius: 5px;
 }
 
-div.flex-container
+div.grid-container
 {
-    display: -webkit-flex;
-    display:         flex;
-            flex-direction: row;
-
     margin-top: 2rem;
-
-    flex-wrap: wrap;
-    -webkit-flex-direction: row;
 }
 
 
 div.second-container
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
 
-    max-width: 450px;
-    margin: 100px auto;
+    margin: 10px;
     padding: 2rem;
 
     vertical-align: middle;
@@ -71,6 +65,7 @@ div.second-container
 
 @media screen and (max-width: 450px)
 {
+    
     div.second-container
     {
         margin: 50px 10px;
@@ -82,6 +77,19 @@ div.second-container
         margin: 10px 0;
     }
 }
+@media screen and (min-width: 451px) {
+    div.grid-container {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 50% 50%;
+    }
+    div.second-container {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+}
 
 div.link-box
 {
@@ -90,9 +98,6 @@ div.link-box
     border-radius: 5px;
     background-color: #dbdbdb;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2);
-
-    -webkit-flex: auto;
-            flex: 1rem;
 
     overflow: hidden;
 }
@@ -239,8 +244,6 @@ div#wind-data
 div#weather-data
 {
     display: table-cell;
-
-    padding-left: 70px;
 }
 
 div#weather-data table
